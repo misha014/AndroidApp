@@ -13,13 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <android.support.design.button.MaterialButton
+    <Button
         android:id="@+id/btnStartRecord"
         android:text="@string/record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <android.support.design.button.MaterialButton
+    <Button
         android:id="@+id/btnStopRecord"
         android:text="@string/stop"
         android:layout_width="wrap_content"
@@ -31,13 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <android.support.design.button.MaterialButton
+    <Button
         android:id="@+id/btnPlay"
         android:text="@string/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <android.support.design.button.MaterialButton
+    <Button
         android:id="@+id/btnStop"
         android:text="@string/stopPlay"
         android:layout_width="wrap_content"
