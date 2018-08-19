@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    mediaRecorder.stop();
+                   // mediaRecorder.release();
+                    mediaRecorder.release();
+
                     btnStopRecord.setEnabled(false);
                     btnPlay.setEnabled(true);
                     btnRecord.setEnabled(true);
