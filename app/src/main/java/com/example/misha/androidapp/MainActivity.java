@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     String pathSave = "";
     MediaRecorder mediaRecorder;
     MediaPlayer mediaPlayer;
-    ImageView btnRecord, btnStopRecord, btnPlay, btnStop;
+    ImageView btnRecord, btnStopRecord, btnPlay, btnStop, btnDelete;
 
     final int REQUEST_PERMISSION_CODE = 1000;
 
@@ -43,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
             requestPermission();
 
         btnPlay = (ImageView) findViewById(R.id.btnPlay);
-//        btnRecord = (Button)findViewById(R.id.btnStartRecord);
         btnRecord = (ImageView) findViewById(R.id.btnStartRecord);
         btnStopRecord = (ImageView) findViewById(R.id.btnStopRecord);
         btnStop = (ImageView) findViewById(R.id.btnStop);
+        btnDelete = (ImageView) findViewById(R.id.delete);
 
 
             btnRecord.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                     btnRecord.setEnabled(true);
                     btnStopRecord.setEnabled(false);
                     btnStop.setEnabled(false);
+                    Toast.makeText(MainActivity.this, "Record Stopped", Toast.LENGTH_SHORT).show();
+
                 }
             });
 
@@ -131,7 +134,22 @@ public class MainActivity extends AppCompatActivity {
                         mediaPlayer.stop();
                         mediaPlayer.release();
                         setupMediaRecorder();
+                        Toast.makeText(MainActivity.this, "Playing Stopped", Toast.LENGTH_SHORT).show();
+
                     }
+                }
+            });
+
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    File file = new File(pathSave);
+                    boolean deleted = file.delete();
+
+                    if (deleted = true)
+                    Toast.makeText(MainActivity.this, "Record Deleted", Toast.LENGTH_SHORT).show();
+                    btnPlay.setEnabled(false);
+                    btnStop.setEnabled(false);
                 }
             });
 
