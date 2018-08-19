@@ -7,79 +7,96 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="274dp"
+        android:layout_height="371dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="#efa51c"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/play_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="39dp"
+            android:text="@string/play_area" />
+
         <Button
             android:id="@+id/btnStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btnPlay"
+            android:layout_centerHorizontal="true"
             android:text="@string/stopPlay"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="259dp"
-            tools:layout_editor_absoluteY="172dp" />
+            tools:layout_editor_absoluteY="220dp" />
 
         <Button
             android:id="@+id/btnPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/btnStop"
+            android:layout_marginBottom="29dp"
+            android:layout_marginStart="25dp"
             android:text="@string/play"
-            tools:layout_editor_absoluteX="38dp"
-            tools:layout_editor_absoluteY="172dp" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="49dp"
+            tools:layout_editor_absoluteY="220dp" />
 
-        <android.support.v7.widget.AppCompatAutoCompleteTextView
+        <Button
+            android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/play_area"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="137dp"
-            tools:layout_editor_absoluteY="31dp" />
-    </android.support.constraint.ConstraintLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btnStop"
+            android:layout_marginEnd="24dp"
+            android:text="Delete" />
+    </RelativeLayout>
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="295dp"
+        android:layout_height="306dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="#497a5c">
 
         <Button
             android:id="@+id/btnStopRecord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/btnStop"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="36dp"
+            android:layout_marginEnd="24dp"
             android:text="@string/stop"
-            tools:layout_editor_absoluteX="203dp"
-            tools:layout_editor_absoluteY="185dp" />
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="224dp" />
 
         <Button
             android:id="@+id/btnStartRecord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/btnPlay"
+            android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/btnStopRecord"
+            android:layout_marginStart="24dp"
             android:text="@string/record"
-            tools:layout_editor_absoluteX="60dp"
-            tools:layout_editor_absoluteY="185dp" />
+            tools:layout_editor_absoluteX="49dp"
+            tools:layout_editor_absoluteY="224dp" />
 
-        <android.support.v7.widget.AppCompatAutoCompleteTextView
+        <TextView
+            android:id="@+id/record_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/record_area"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="123dp"
-            tools:layout_editor_absoluteY="16dp" />
-    </android.support.constraint.ConstraintLayout>
+            android:layout_marginTop="20dp"
+            android:text="@string/record_area" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
