@@ -5,6 +5,7 @@
     <string name="record">Record</string>
     <string name="play_area">Play Area</string>
     <string name="play">Play</string>
-    <string name="stopPlay">StopPlay</string>
+    <string name="stopPlay">Stop Play</string>
     <string name="record_area">Record Area</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -26,10 +27,10 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRecord, btnStopRecord, btnPlay, btnStop;
     String pathSave = "";
     MediaRecorder mediaRecorder;
     MediaPlayer mediaPlayer;
+    ImageView btnRecord, btnStopRecord, btnPlay, btnStop;
 
     final int REQUEST_PERMISSION_CODE = 1000;
 
@@ -41,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
         if (!checkPermissionFromDevice())
             requestPermission();
 
-        btnPlay = (Button)findViewById(R.id.btnPlay);
-        btnRecord = (Button)findViewById(R.id.btnStartRecord);
-        btnStopRecord = (Button)findViewById(R.id.btnStopRecord);
-        btnStop = (Button)findViewById(R.id.btnStop);
+        btnPlay = (ImageView) findViewById(R.id.btnPlay);
+//        btnRecord = (Button)findViewById(R.id.btnStartRecord);
+        btnRecord = (ImageView) findViewById(R.id.btnStartRecord);
+        btnStopRecord = (ImageView) findViewById(R.id.btnStopRecord);
+        btnStop = (ImageView) findViewById(R.id.btnStop);
 
 
             btnRecord.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
                             mediaRecorder.prepare();
                             mediaRecorder.start();
 
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
 
+                        btnRecord.setEnabled(false);
                         btnPlay.setEnabled(false);
                         btnStop.setEnabled(false);
+
 
                         Toast.makeText(MainActivity.this, "Recording...", Toast.LENGTH_SHORT).show();
                     }
@@ -86,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     btnStopRecord.setEnabled(false);
                     btnPlay.setEnabled(true);
                     btnRecord.setEnabled(true);
+                    btnStopRecord.setEnabled(false);
                     btnStop.setEnabled(false);
                 }
             });
@@ -107,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     mediaPlayer.start();
-
+                    btnStop.setEnabled(true);
                     Toast.makeText(MainActivity.this, "Playing..", Toast.LENGTH_SHORT).show();
 
                 }
