@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = (ImageView) findViewById(R.id.delete);
 
 
+        btnPlay.setEnabled(false);
+        btnDelete.setEnabled(false);
+        btnStop.setEnabled(false);
+        btnStopRecord.setEnabled(false);
+
             btnRecord.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -69,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         btnRecord.setEnabled(false);
-                        btnPlay.setEnabled(false);
+                        btnStopRecord.setEnabled(true);
+                        btnDelete.setEnabled(false);
                         btnStop.setEnabled(false);
+                        btnPlay.setEnabled(false);
 
 
                         Toast.makeText(MainActivity.this, "Recording...", Toast.LENGTH_SHORT).show();
@@ -86,13 +93,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                   // mediaRecorder.release();
                     mediaRecorder.release();
 
                     btnStopRecord.setEnabled(false);
                     btnPlay.setEnabled(true);
                     btnRecord.setEnabled(true);
-                    btnStopRecord.setEnabled(false);
+                    btnDelete.setEnabled(true);
                     btnStop.setEnabled(false);
                     Toast.makeText(MainActivity.this, "Record Stopped", Toast.LENGTH_SHORT).show();
 
@@ -102,9 +108,12 @@ public class MainActivity extends AppCompatActivity {
             btnPlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     btnStop.setEnabled(true);
                     btnStopRecord.setEnabled(false);
-                    btnRecord.setEnabled(false);
+                    btnRecord.setEnabled(true);
+                    btnDelete.setEnabled(true);
+                    btnPlay.setEnabled(false);
 
                     mediaPlayer = new MediaPlayer();
                     try {
@@ -116,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     mediaPlayer.start();
-                    btnStop.setEnabled(true);
                     Toast.makeText(MainActivity.this, "Playing..", Toast.LENGTH_SHORT).show();
 
                 }
@@ -129,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                     btnRecord.setEnabled(true);
                     btnStop.setEnabled(false);
                     btnPlay.setEnabled(true);
+                    btnDelete.setEnabled(true);
 
                     if (mediaPlayer != null){
                         mediaPlayer.stop();
@@ -150,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Record Deleted", Toast.LENGTH_SHORT).show();
                     btnPlay.setEnabled(false);
                     btnStop.setEnabled(false);
+                    btnRecord.setEnabled(true);
+                    btnStopRecord.setEnabled(false);
+                    btnDelete.setEnabled(false);
                 }
             });
 
